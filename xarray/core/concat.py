@@ -12,7 +12,7 @@ from xarray.core.coordinates import Coordinates
 from xarray.core.duck_array_ops import lazy_array_equiv
 from xarray.core.indexes import Index, PandasIndex
 from xarray.core.merge import (
-    _VALID_COMPAT,
+    _assert_compat_valid,
     collect_variables_and_indexes,
     merge_attrs,
     merge_collected,
@@ -255,10 +255,7 @@ def concat(
     except StopIteration as err:
         raise ValueError("must supply at least one object to concatenate") from err
 
-    if compat not in _VALID_COMPAT:
-        raise ValueError(
-            f"compat={compat!r} invalid: must be 'broadcast_equals', 'equals', 'identical', 'no_conflicts' or 'override'"
-        )
+    _assert_compat_valid(compat)
 
     if isinstance(first_obj, DataArray):
         return _dataarray_concat(
