@@ -673,11 +673,11 @@ class Dataset(
 
     """
 
-    _attrs: dict[Hashable, Any] | None
+    _attrs: dict[Hashable, Any]
     _cache: dict[str, Any]
     _coord_names: set[Hashable]
     _dims: dict[Hashable, int]
-    _encoding: dict[Hashable, Any] | None
+    _encoding: dict[Hashable, Any]
     _close: Callable[[], None] | None
     _indexes: dict[Hashable, Index]
     _variables: dict[Hashable, Variable]
@@ -720,9 +720,9 @@ class Dataset(
             data_vars, coords
         )
 
-        self._attrs = dict(attrs) if attrs else None
+        self._attrs = dict(attrs) if attrs is not None else {}
         self._close = None
-        self._encoding = None
+        self._encoding = {}
         self._variables = variables
         self._coord_names = coord_names
         self._dims = dims
@@ -759,19 +759,15 @@ class Dataset(
     @property
     def attrs(self) -> dict[Any, Any]:
         """Dictionary of global attributes on this dataset"""
-        if self._attrs is None:
-            self._attrs = {}
         return self._attrs
 
     @attrs.setter
     def attrs(self, value: Mapping[Any, Any]) -> None:
-        self._attrs = dict(value) if value else None
+        self._attrs = dict(value)
 
     @property
     def encoding(self) -> dict[Any, Any]:
         """Dictionary of global encoding attributes on this dataset"""
-        if self._encoding is None:
-            self._encoding = {}
         return self._encoding
 
     @encoding.setter
