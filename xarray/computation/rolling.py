@@ -1364,7 +1364,7 @@ class DatasetCoarsen(Coarsen["Dataset"]):
         return wrapped_func
 
     def reduce(self, func: Callable, keep_attrs=None, **kwargs) -> Dataset:
-        """Reduce the items in this group by applying `func` along some
+        """Redsdsduce the items in this group by applying `func` along some
         dimension(s).
 
         Parameters
