@@ -140,7 +140,7 @@ jobs:
       - name: Install xarray
         run: |
           python -m pip install --no-deps -e .
-
+      - run: echo "hello"
       - name: Version info
         run: |
           python xarray/util/print_versions.py
