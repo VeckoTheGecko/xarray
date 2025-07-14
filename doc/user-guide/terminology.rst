@@ -284,3 +284,4 @@ complete examples, please consult the relevant documentation.*
         Analogous to a single
         `netCDF group <https://www.unidata.ucar.edu/software/netcdf/workshops/2011/groups-types/GroupsIntro.html>`_
         or `Zarr group <https://zarr.readthedocs.io/en/stable/tutorial.html#groups>`_.
+THIS IS A TEST
