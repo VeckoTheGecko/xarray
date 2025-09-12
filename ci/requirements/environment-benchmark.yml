@@ -1,5 +1,0 @@
-name: xarray-benchmark
-channels:
-  - conda-forge
-  - nodefaults
-dependencies:
