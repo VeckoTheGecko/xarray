@@ -8,7 +8,6 @@ dependencies:
   - dask-core
   - distributed
   - flox
-  - netcdf4
   - numba
   - numbagg
   - numexpr
@@ -17,4 +16,3 @@ dependencies:
   - sparse
   - scipy
   - toolz
-  - zarr
