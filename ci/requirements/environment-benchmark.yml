@@ -13,8 +13,7 @@ dependencies:
   - numbagg
   - numexpr
   - opt_einsum
-  - pandas
-  - pyarrow # pandas raises a deprecation warning without this, breaking doctests
+    - pyarrow # pandas raises a deprecation warning without this, breaking doctests
   - sparse
   - scipy
   - toolz
