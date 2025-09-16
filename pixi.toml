@@ -19,15 +19,8 @@ git = "*" # needed for dynamic versioning
 [pypi-dependencies]
 xarray = { path = ".", editable = true }
 
-
 [feature.doc.dependencies]
-cfgrib = "*"
-kerchunk = "*"
-ncdata = '*'
-pyproj = "*"
-rich = "*"       # for Zarr tree()
-setuptools = "*"
-
+cfgrib = "*" #! What is up with cfgrib??
 
 [package]
 name = "xarray"
