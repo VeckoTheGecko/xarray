@@ -15,10 +15,6 @@ depends-on = [
 test-default = { features = ["test"], solve-group = "test" }
 test-all-deps = { features = [
   "test",
-  "backends",
-  "performance",
-  "plotting",
-  "extras",
 ], solve-group = "test" }
 test-bare-min = { features = ["test", "minimal"], solve-group = "test" }
 
@@ -26,10 +22,6 @@ test-bare-min = { features = ["test", "minimal"], solve-group = "test" }
 typing = { features = ["mypy"] }
 doc = { features = [
   "doc",
-  "backends",
-  "performance",
-  "plotting",
-  "extras",
 ], solve-group = "doc" }
 pre-commit = { features = ["pre-commit"], no-default-feature = true }
 
@@ -53,61 +45,6 @@ python = "3.11.*"
 numpy = "1.26.*"
 pandas = "2.2.*"
 
-[feature.backends.dependencies]
-# files
-h5netcdf = "*"
-h5py = "*"
-hdf5 = "*"
-netcdf4 = "*"
-zarr = "*"
-rasterio = "*"
-
-# opendap
-pydap = "*"
-lxml = "*"  # Optional dep of pydap
-
-# s3
-boto3 = "*"
-fsspec = "*"
-aiobotocore = "*"
-
-[feature.performance.dependencies]
-flox = "*"
-bottleneck = "*"
-numexpr = "*"
-pyarrow = "*"
-dask-core = "*"
-opt_einsum = "*"
-numba = "*"
-numbagg = "*"
-distributed = "*"
-
-[feature.performance.pypi-dependencies]
-jax = "*"
-
-
-[feature.plotting.dependencies]
-cartopy = "*"
-matplotlib-base = "*"
-nc-time-axis = "*"
-seaborn = "*"
-
-[feature.extras.dependencies]
-# array
-array-api-strict = "<2.4"
-sparse = "*"
-
-# algorithms
-scipy = "*"
-toolz = "*"
-
-# tutorial
-pooch = "*"
-
-# other
-cftime = "*"
-pint = "*"
-iris = "*"
 
 [feature.test.dependencies]
 pytest = "*"
