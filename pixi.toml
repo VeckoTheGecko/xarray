@@ -3,61 +3,22 @@ preview = ["pixi-build"]
 channels = ["conda-forge", "nodefaults"]
 platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
 
-[tasks.test-all]
-depends-on = [
-  { task = "test", environment = "test-default" },
-  { task = "test", environment = "test-bare-min" },
-  { task = "test", environment = "test-all-deps" },
-]
 
 [environments]
-# Testing
-test-default = { features = ["test"], solve-group = "test" }
-test-all-deps = { features = [
-  "test",
-], solve-group = "test" }
-test-bare-min = { features = ["test", "minimal"], solve-group = "test" }
-
-# Extra
-typing = { features = ["mypy"] }
 doc = { features = [
   "doc",
 ], solve-group = "doc" }
-pre-commit = { features = ["pre-commit"], no-default-feature = true }
 
 [dependencies]
 python = "*"
 numpy = "*"
 pandas = "*"
 
-packaging = "24.1.*" #? Can be removed?
-git = "*"            # needed for dynamic versioning
+git = "*" # needed for dynamic versioning
 
 [pypi-dependencies]
 xarray = { path = ".", editable = true }
 
-[target.linux-64.dependencies]
-pydap-server = "*"
-
-[feature.minimal.dependencies]
-# minimal versions
-python = "3.11.*"
-numpy = "1.26.*"
-pandas = "2.2.*"
-
-
-[feature.test.dependencies]
-pytest = "*"
-pytest-asyncio = "*"
-pytest-cov = "*"
-pytest-env = "*"
-pytest-mypy-plugins = "*"
-pytest-timeout = "*"
-pytest-xdist = "*"
-coveralls = "*"
-
-[feature.test.tasks]
-test = { cmd = "pytest" }
 
 [feature.doc.dependencies]
 cfgrib = "*"
@@ -83,38 +44,6 @@ sphinxcontrib-srclinks = "*"
 sphinx-remove-toctrees = "*"
 sphinxext-opengraph = "*"
 sphinxext-rediraffe = "*"
-
-
-[feature.mypy.dependencies]
-mypy = "==1.17.1"
-hypothesis = "*"
-lxml = "*"
-pandas-stubs = "<=2.2.3.241126" # https://github.com/pydata/xarray/issues/10110
-types-colorama = "*"
-types-docutils = "*"
-types-psutil = "*"
-types-Pygments = "*"
-types-python-dateutil = "*"
-types-pytz = "*"
-types-PyYAML = "*"
-types-requests = "*"
-types-setuptools = "*"
-types-openpyxl = "*"
-typing_extensions = "*"
-
-[feature.mypy.pypi-dependencies]
-types-defusedxml = "*"
-types-pexpect = "*"
-
-
-[feature.mypy.tasks]
-mypy = "mypy --install-types --non-interactive --cobertura-xml-report mypy_report"
-
-[feature.pre-commit.dependencies]
-pre-commit = "*"
-
-[feature.pre-commit.tasks]
-pre-commit = { cmd = "pre-commit run --all-files" }
 
 
 [package]
