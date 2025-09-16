@@ -22,26 +22,26 @@ xarray = { path = ".", editable = true }
 
 [feature.doc.dependencies]
 cfgrib = "*"
-kerchunk = "*"
 ipykernel = "*"
-ipywidgets = "*"                   # silence nbsphinx warning
 ipython = '*'
+ipywidgets = "*"                   # silence nbsphinx warning
 jupyter_client = '*'
 jupyter_sphinx = '*'
+kerchunk = "*"
 nbsphinx = '*'
 ncdata = '*'
 pydata-sphinx-theme = "*"
 pyproj = "*"
 rich = "*"                         # for Zarr tree()
 setuptools = "*"
+sphinx = ">=6,<8"
 sphinx-autosummary-accessors = "*"
 sphinx-copybutton = "*"
 sphinx-design = "*"
 sphinx-inline-tabs = "*"
-sphinx = ">=6,<8"
+sphinx-remove-toctrees = "*"
 sphinxcontrib-mermaid = "*"
 sphinxcontrib-srclinks = "*"
-sphinx-remove-toctrees = "*"
 sphinxext-opengraph = "*"
 sphinxext-rediraffe = "*"
 
